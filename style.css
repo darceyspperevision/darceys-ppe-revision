@@ -613,14 +613,13 @@ img.carousel-slide.active { display:block; }
   margin: 0;
 }
 
-/* ===== SOURCE LIST ===== */
-.source-list {
-  font-size: 13px;
-  color: #3a0818;
-  line-height: 1.75;
-  padding-left: 18px;
-  margin: 8px 0 12px;
+/* ===== ESSAY QUESTION LINK ===== */
+.essay-question-box a.essay-q-link {
+  color: #4a0820;
+  text-decoration: none;
+  border-bottom: 1px dashed #9a6070;
 }
-.source-list li {
-  margin-bottom: 8px;
+.essay-question-box a.essay-q-link:hover {
+  color: #7a0030;
+  border-bottom: 1px solid #7a0030;
 }
