@@ -345,76 +345,85 @@ hr {
 }
 
 /* ===== TOPIC LIST ===== */
-.topic-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 14px;
-}
-.topic-list li { margin-bottom: 5px; }
+.topic-list { list-style:none; padding:0; margin:0 0 14px; }
+.topic-list li { margin-bottom:5px; }
 .topic-list li a {
-  display: inline-block;
-  padding: 5px 12px;
-  background-color: #7a2a42;
-  color: #ffeef4;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  border: 1px outset #9a4a62;
-  border-radius: 5px;
+  display:inline-block; padding:5px 12px;
+  background-color:#7a2a42; color:#ffeef4;
+  text-decoration:none; font-size:13px; font-weight:bold;
+  font-family:Arial,Helvetica,sans-serif;
+  border:1px outset #9a4a62; border-radius:5px;
 }
-.topic-list li a:hover { background-color: #8a3a52; color: #ffffff; }
+.topic-list li a:hover { background-color:#8a3a52; color:#ffffff; }
 
 /* ===== READING LIST LINK ===== */
-.reading-list-link {
-  font-size: 13px;
-  margin-bottom: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.reading-list-link a { color: #7a0030; font-weight: bold; }
+.reading-list-link { font-size:13px; margin-bottom:14px; font-family:Arial,Helvetica,sans-serif; }
+.reading-list-link a { color:#7a0030; font-weight:bold; }
 
-/* ===== ESSAY BLOCKS ===== */
+/* ===== ESSAY BLOCK ===== */
 .essay-block {
-  margin-bottom: 28px;
-  border: 1px solid #c090a0;
-  border-radius: 6px;
-  overflow: hidden;
+  margin-bottom:24px;
+  border:1px solid #c090a0;
+  border-radius:6px;
+  overflow:hidden;
 }
 .essay-block-title {
-  background-color: #7a2a42;
-  color: #ffeef4;
-  padding: 8px 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1.4;
+  background-color:#7a2a42; color:#ffeef4;
+  padding:8px 14px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:13px; font-weight:bold; line-height:1.4;
 }
-.essay-img {
-  display: block;
-  width: 100%;
-  border-top: 1px solid #c090a0;
+
+/* ===== CAROUSEL ===== */
+.carousel { background:#fff; }
+
+.carousel-track { position:relative; }
+
+.carousel-slide {
+  display:none;
+  width:100%;
+}
+.carousel-slide.active { display:block; }
+
+.carousel-slide img,
+img.carousel-slide {
+  display:none;
+  width:100%;
+  border-top:1px solid #c090a0;
+}
+img.carousel-slide.active { display:block; }
+
+.carousel-controls {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:8px;
+  background:#f4dce8;
+  border-top:1px solid #c090a0;
+}
+.carousel-btn {
+  background-color:#7a2a42; color:#ffeef4;
+  border:1px outset #9a4a62; border-radius:4px;
+  padding:4px 14px; font-size:16px; font-weight:bold;
+  cursor:pointer; font-family:Arial,Helvetica,sans-serif;
+}
+.carousel-btn:hover { background-color:#8a3a52; }
+.carousel-counter {
+  font-size:12px; font-weight:bold;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#5a1830; min-width:48px; text-align:center;
 }
 
 /* ===== ESSAY PLACEHOLDER ===== */
 .essay-placeholder {
-  background-color: #f4dce8;
-  border: 2px dashed #c090a0;
-  padding: 24px;
-  text-align: center;
-  color: #7a4858;
-  font-style: italic;
-  font-size: 13px;
-  margin-bottom: 14px;
-  border-radius: 6px;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color:#f4dce8; border:2px dashed #c090a0;
+  padding:24px; text-align:center; color:#7a4858;
+  font-style:italic; font-size:13px; margin-bottom:14px;
+  border-radius:6px; font-family:Arial,Helvetica,sans-serif;
 }
 
 /* ===== BREADCRUMB ===== */
-.breadcrumb {
-  font-size: 12px;
-  margin-bottom: 12px;
-  color: #7a4858;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.breadcrumb a { color: #7a0030; text-decoration: none; font-weight: bold; }
-.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb { font-size:12px; margin-bottom:12px; color:#7a4858; font-family:Arial,Helvetica,sans-serif; }
+.breadcrumb a { color:#7a0030; text-decoration:none; font-weight:bold; }
+.breadcrumb a:hover { text-decoration:underline; }
