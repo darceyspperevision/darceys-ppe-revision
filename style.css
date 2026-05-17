@@ -612,3 +612,15 @@ img.carousel-slide.active { display:block; }
   line-height: 1.7;
   margin: 0;
 }
+
+/* ===== SOURCE LIST ===== */
+.source-list {
+  font-size: 13px;
+  color: #3a0818;
+  line-height: 1.75;
+  padding-left: 18px;
+  margin: 8px 0 12px;
+}
+.source-list li {
+  margin-bottom: 8px;
+}
