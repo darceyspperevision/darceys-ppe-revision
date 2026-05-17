@@ -348,9 +348,32 @@ hr {
 .gif-row {
   display: flex;
   gap: 10px;
-  margin: 14px 0;
+  margin: 10px 0;
+  justify-content: center;
 }
 .gif-cell {
   flex: 1;
   min-width: 0;
+  max-width: 200px;
+}
+
+/* ===== RAINBOW COMIC SANS TITLE ===== */
+.rainbow-title {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-size: 26px;
+  font-style: normal;
+  text-align: center;
+  margin: 10px 0 18px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+/* ===== VIDEO WRAPPER ===== */
+.video-wrapper {
+  margin: 0 auto;
+  max-width: 640px;
+  border: 3px solid #9a6070;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 3px 3px 0 #c090a0;
 }
