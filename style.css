@@ -493,3 +493,11 @@ img.carousel-slide.active { display:block; }
   margin-bottom: 18px;
   box-shadow: 2px 2px 0 #c090a0;
 }
+
+/* ===== READING LIST INLINE LINKS ===== */
+.rl-link {
+  color: #7a0030;
+  font-weight: bold;
+  text-decoration: none;
+}
+.rl-link:hover { text-decoration: underline; }
