@@ -501,3 +501,114 @@ img.carousel-slide.active { display:block; }
   text-decoration: none;
 }
 .rl-link:hover { text-decoration: underline; }
+
+/* ===== SOURCE SUMMARY PAGES ===== */
+.source-cite {
+  font-size: 13px;
+  font-style: italic;
+  color: #3a0818;
+}
+.source-section {
+  margin-bottom: 6px;
+}
+.source-section p {
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 0 0 8px;
+}
+.arg-block {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background-color: #fdf0f5;
+  border: 1px solid #c090a0;
+  border-left: 4px solid #7a2a42;
+  border-radius: 0 6px 6px 0;
+}
+.arg-claim {
+  font-weight: bold;
+  font-size: 13px;
+  color: #3a0818;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+}
+.arg-evidence {
+  font-size: 12px;
+  color: #5a2838;
+  line-height: 1.6;
+}
+.concept-list {
+  margin: 0 0 12px;
+  padding: 0;
+}
+.concept-term {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #4a0820;
+  margin: 10px 0 2px;
+}
+.concept-def {
+  font-size: 12px;
+  color: #3a0818;
+  line-height: 1.65;
+  margin: 0 0 0 12px;
+  border-left: 2px solid #d4a0b4;
+  padding-left: 10px;
+}
+.essay-relevance-box {
+  background: linear-gradient(135deg, #f4dce8 0%, #fdf0f5 100%);
+  border: 2px solid #9a6070;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+.essay-q-label {
+  font-size: 12px;
+  font-style: italic;
+  color: #5a1830;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+.essay-bullets {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: #3a0818;
+  line-height: 1.75;
+}
+.essay-bullets li {
+  margin-bottom: 6px;
+}
+
+/* ===== GLOSSARY ===== */
+.glossary {
+  margin: 0 0 18px;
+  padding: 0;
+}
+.gloss-item {
+  margin-bottom: 0;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e0c0cc;
+}
+.gloss-item:nth-child(even) {
+  background-color: #fdf0f5;
+}
+.gloss-item:nth-child(odd) {
+  background-color: #fff8fb;
+}
+.gloss-term {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #4a0820;
+  display: block;
+  margin-bottom: 3px;
+}
+.gloss-def {
+  font-size: 12px;
+  color: #3a0818;
+  line-height: 1.7;
+  margin: 0;
+}
