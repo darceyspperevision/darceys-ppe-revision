@@ -359,13 +359,15 @@ hr {
 
 /* ===== RAINBOW COMIC SANS TITLE ===== */
 .rainbow-title {
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-  font-size: 26px;
-  font-style: normal;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+  font-size: 28px;
+  font-style: normal !important;
+  font-weight: bold;
   text-align: center;
   margin: 10px 0 18px;
-  letter-spacing: 1px;
-  line-height: 1.4;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  -webkit-text-stroke: 0.3px rgba(0,0,0,0.1);
 }
 
 /* ===== VIDEO WRAPPER ===== */
