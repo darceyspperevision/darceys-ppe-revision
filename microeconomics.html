@@ -4,6 +4,118 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Microeconomics &mdash; Darcey&#39;s Revision Pages</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* ===== TOPIC TRACKER ===== */
+    .topic-tracker-container {
+      background: #fdf0f5;
+      border: 1px solid #c090a0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .topic-tracker-header {
+      background: #7a2a42;
+      color: #ffeef4;
+      padding: 6px 12px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tl-legend {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 11px;
+    }
+    .tl-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .tl-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 12px;
+      border-bottom: 1px solid #e8d0d8;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+    }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-row:nth-child(even) { background: #fae8f0; }
+    .tl-topic-name { flex: 1; color: #3a0818; }
+    .tl-buttons { display: flex; gap: 8px; }
+    .tl-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid #cca0b0;
+      cursor: pointer;
+      opacity: 0.28;
+      transition: opacity 0.15s, border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+      display: inline-block;
+    }
+    .tl-btn:hover { opacity: 0.65; }
+    .tl-btn.selected {
+      opacity: 1;
+      border-color: #1a0810;
+      box-shadow: 0 0 5px rgba(0,0,0,0.35);
+    }
+    .tl-red   { background-color: #cc2222; }
+    .tl-amber { background-color: #e8a020; }
+    .tl-green { background-color: #229922; }
+
+    /* ===== PAST PAPERS GRID ===== */
+    .pp-grid {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+    .pp-grid th {
+      background-color: #7a2a42;
+      color: #ffeef4;
+      padding: 5px 10px;
+      text-align: left;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      border: 1px solid #9a6070;
+    }
+    .pp-grid td {
+      padding: 5px 10px;
+      border: 1px solid #c8a0b0;
+      background-color: #ffffff;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .pp-grid tr:nth-child(even) td { background-color: #fae8f0; }
+    .pp-grid td:first-child {
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #5a1830;
+      text-align: left;
+    }
+    .pp-grid td a {
+      color: #7a0030;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .pp-grid td a:hover { text-decoration: underline; color: #cc0044; }
+  </style>
 </head>
 <body>
 
@@ -53,58 +165,133 @@
 
     <h2>Microeconomics</h2>
 
-    <h3>Topics and Lecture Slides</h3>
-    <ul class="topic-list">
-      <li><a href="micro-technical.html">Technical Components</a></li>
-      <li><a href="micro-general-eq.html">General Equilibrium</a></li>
-      <li><a href="micro-welfare.html">Welfare Economics and Social Choice</a></li>
-      <li><a href="micro-applied-welfare.html">Applied Welfare, Externalities and Public Goods</a></li>
-      <li><a href="micro-game-theory.html">Game Theory</a></li>
-      <li><a href="micro-industrial-org.html">Industrial Organization and Competition Policy</a></li>
-      <li><a href="micro-risk.html">Decisions under Risk</a></li>
-      <li><a href="micro-information.html">Information Economics</a></li>
-    </ul>
+    <h3>NotebookLM</h3>
+    <p><a href="https://notebooklm.google.com/notebook/cb81ddb4-72ce-42bf-a1ec-48a16431ffe8" target="_blank" class="notebooklm-link">&#128214; Open NotebookLM &rarr;</a></p>
 
-    <h3>Essays (marked)</h3>
-    <div class="essay-placeholder">ESSAYS TO GO HERE</div>
+    <h3>Topic Tracker</h3>
+    <div class="topic-tracker-container">
+      <div class="topic-tracker-header">
+        <span>Click to rate your confidence in each topic</span>
+        <div class="tl-legend">
+          <div class="tl-legend-item"><span class="tl-dot tl-red"></span> Needs work</div>
+          <div class="tl-legend-item"><span class="tl-dot tl-amber"></span> Getting there</div>
+          <div class="tl-legend-item"><span class="tl-dot tl-green"></span> Confident</div>
+        </div>
+      </div>
+      <div class="tl-row" data-topic="general-eq">
+        <span class="tl-topic-name">General Equilibrium</span>
+        <div class="tl-buttons">
+          <button class="tl-btn tl-red"   data-color="red"   onclick="setTrafficLight('general-eq','red')"   title="Needs work"></button>
+          <button class="tl-btn tl-amber" data-color="amber" onclick="setTrafficLight('general-eq','amber')" title="Getting there"></button>
+          <button class="tl-btn tl-green" data-color="green" onclick="setTrafficLight('general-eq','green')" title="Confident"></button>
+        </div>
+      </div>
+      <div class="tl-row" data-topic="welfare-social-choice">
+        <span class="tl-topic-name">Welfare Economics and Social Choice</span>
+        <div class="tl-buttons">
+          <button class="tl-btn tl-red"   data-color="red"   onclick="setTrafficLight('welfare-social-choice','red')"   title="Needs work"></button>
+          <button class="tl-btn tl-amber" data-color="amber" onclick="setTrafficLight('welfare-social-choice','amber')" title="Getting there"></button>
+          <button class="tl-btn tl-green" data-color="green" onclick="setTrafficLight('welfare-social-choice','green')" title="Confident"></button>
+        </div>
+      </div>
+      <div class="tl-row" data-topic="applied-welfare">
+        <span class="tl-topic-name">Applied Welfare, Externalities and Public Goods</span>
+        <div class="tl-buttons">
+          <button class="tl-btn tl-red"   data-color="red"   onclick="setTrafficLight('applied-welfare','red')"   title="Needs work"></button>
+          <button class="tl-btn tl-amber" data-color="amber" onclick="setTrafficLight('applied-welfare','amber')" title="Getting there"></button>
+          <button class="tl-btn tl-green" data-color="green" onclick="setTrafficLight('applied-welfare','green')" title="Confident"></button>
+        </div>
+      </div>
+      <div class="tl-row" data-topic="game-theory">
+        <span class="tl-topic-name">Game Theory</span>
+        <div class="tl-buttons">
+          <button class="tl-btn tl-red"   data-color="red"   onclick="setTrafficLight('game-theory','red')"   title="Needs work"></button>
+          <button class="tl-btn tl-amber" data-color="amber" onclick="setTrafficLight('game-theory','amber')" title="Getting there"></button>
+          <button class="tl-btn tl-green" data-color="green" onclick="setTrafficLight('game-theory','green')" title="Confident"></button>
+        </div>
+      </div>
+      <div class="tl-row" data-topic="industrial-org">
+        <span class="tl-topic-name">Industrial Organization and Competition Policy</span>
+        <div class="tl-buttons">
+          <button class="tl-btn tl-red"   data-color="red"   onclick="setTrafficLight('industrial-org','red')"   title="Needs work"></button>
+          <button class="tl-btn tl-amber" data-color="amber" onclick="setTrafficLight('industrial-org','amber')" title="Getting there"></button>
+          <button class="tl-btn tl-green" data-color="green" onclick="setTrafficLight('industrial-org','green')" title="Confident"></button>
+        </div>
+      </div>
+      <div class="tl-row" data-topic="decisions-risk">
+        <span class="tl-topic-name">Decisions under Risk</span>
+        <div class="tl-buttons">
+          <button class="tl-btn tl-red"   data-color="red"   onclick="setTrafficLight('decisions-risk','red')"   title="Needs work"></button>
+          <button class="tl-btn tl-amber" data-color="amber" onclick="setTrafficLight('decisions-risk','amber')" title="Getting there"></button>
+          <button class="tl-btn tl-green" data-color="green" onclick="setTrafficLight('decisions-risk','green')" title="Confident"></button>
+        </div>
+      </div>
+      <div class="tl-row" data-topic="information-econ">
+        <span class="tl-topic-name">Information Economics</span>
+        <div class="tl-buttons">
+          <button class="tl-btn tl-red"   data-color="red"   onclick="setTrafficLight('information-econ','red')"   title="Needs work"></button>
+          <button class="tl-btn tl-amber" data-color="amber" onclick="setTrafficLight('information-econ','amber')" title="Getting there"></button>
+          <button class="tl-btn tl-green" data-color="green" onclick="setTrafficLight('information-econ','green')" title="Confident"></button>
+        </div>
+      </div>
+    </div>
 
-    <h3>Past Paper Question Bank</h3>
-    <table class="revtable">
+    <h3>Past Papers Year by Year (2015&ndash;2024)</h3>
+    <table class="pp-grid">
       <tr>
-        <th>Topic</th>
-        <th>Past Paper Questions</th>
+        <th>Year</th>
+        <th>Question Paper</th>
+        <th>Solutions</th>
       </tr>
       <tr>
-        <td><a href="micro-technical.html">Technical Components</a></td>
-        <td>QUESTION</td>
+        <td>2024</td>
+        <td><a href="Microeconomics-exam-paper-2024.pdf" target="_blank">&#128196; 2024 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2024.pdf" target="_blank">&#128196; 2024 Solutions</a></td>
       </tr>
       <tr>
-        <td><a href="micro-general-eq.html">General Equilibrium</a></td>
-        <td>QUESTION</td>
+        <td>2023</td>
+        <td><a href="Microeconomics-exam-paper-2023.pdf" target="_blank">&#128196; 2023 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2023.pdf" target="_blank">&#128196; 2023 Solutions</a></td>
       </tr>
       <tr>
-        <td><a href="micro-welfare.html">Welfare Economics and Social Choice</a></td>
-        <td>QUESTION</td>
+        <td>2022</td>
+        <td><a href="Microeconomics-exam-paper-2022.pdf" target="_blank">&#128196; 2022 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2022.pdf" target="_blank">&#128196; 2022 Solutions</a></td>
       </tr>
       <tr>
-        <td><a href="micro-applied-welfare.html">Applied Welfare, Externalities and Public Goods</a></td>
-        <td>QUESTION</td>
+        <td>2021</td>
+        <td><a href="Microeconomics-exam-paper-2021.pdf" target="_blank">&#128196; 2021 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2021.pdf" target="_blank">&#128196; 2021 Solutions</a></td>
       </tr>
       <tr>
-        <td><a href="micro-game-theory.html">Game Theory</a></td>
-        <td>QUESTION</td>
+        <td>2020</td>
+        <td><a href="Microeconomics-exam-paper-2020.pdf" target="_blank">&#128196; 2020 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2020.pdf" target="_blank">&#128196; 2020 Solutions</a></td>
       </tr>
       <tr>
-        <td><a href="micro-industrial-org.html">Industrial Organization and Competition Policy</a></td>
-        <td>QUESTION</td>
+        <td>2019</td>
+        <td><a href="Microeconomics-exam-paper-2019.pdf" target="_blank">&#128196; 2019 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2019.pdf" target="_blank">&#128196; 2019 Solutions</a></td>
       </tr>
       <tr>
-        <td><a href="micro-risk.html">Decisions under Risk</a></td>
-        <td>QUESTION</td>
+        <td>2018</td>
+        <td><a href="Microeconomics-exam-paper-2018.pdf" target="_blank">&#128196; 2018 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2018.pdf" target="_blank">&#128196; 2018 Solutions</a></td>
       </tr>
       <tr>
-        <td><a href="micro-information.html">Information Economics</a></td>
-        <td>QUESTION</td>
+        <td>2017</td>
+        <td><a href="Microeconomics-exam-paper-2017.pdf" target="_blank">&#128196; 2017 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2017.pdf" target="_blank">&#128196; 2017 Solutions</a></td>
+      </tr>
+      <tr>
+        <td>2016</td>
+        <td><a href="Microeconomics-exam-paper-2016.pdf" target="_blank">&#128196; 2016 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2016.pdf" target="_blank">&#128196; 2016 Solutions</a></td>
+      </tr>
+      <tr>
+        <td>2015</td>
+        <td><a href="Microeconomics-exam-paper-2015.pdf" target="_blank">&#128196; 2015 Paper</a></td>
+        <td><a href="Microeconomics-solutions-paper-2015.pdf" target="_blank">&#128196; 2015 Solutions</a></td>
       </tr>
     </table>
 
@@ -115,6 +302,35 @@
   Darcey McAllister &bull; St Hilda&#39;s College, Oxford &bull; PPE Finals 2027 &bull;
   <a href="index.html">Home</a>
 </div>
+
+<script>
+function setTrafficLight(topic, color) {
+  var current = localStorage.getItem('micro_tl_' + topic);
+  if (current === color) {
+    localStorage.removeItem('micro_tl_' + topic);
+  } else {
+    localStorage.setItem('micro_tl_' + topic, color);
+  }
+  renderTrafficLights();
+}
+
+function renderTrafficLights() {
+  document.querySelectorAll('.tl-row').forEach(function(row) {
+    var topic = row.getAttribute('data-topic');
+    var selected = localStorage.getItem('micro_tl_' + topic) || '';
+    row.querySelectorAll('.tl-btn').forEach(function(btn) {
+      var c = btn.getAttribute('data-color');
+      if (c === selected) {
+        btn.classList.add('selected');
+      } else {
+        btn.classList.remove('selected');
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderTrafficLights);
+</script>
 
 </body>
 </html>
