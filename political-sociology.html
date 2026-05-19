@@ -196,6 +196,25 @@
       </div>
     </div>
 
+
+    <h3>&#127922; Rapid Essay Practice</h3>
+    <p style="font-size:12px; font-family:Arial,sans-serif; color:#7a4858; margin-bottom:10px;">
+      Get a random past paper question and write a quick plan. Hit Save and it goes straight to your <a href="pol-soc-rapid-essays.html" style="color:#7a0030;">Rapid Essay Plans</a> page.
+    </p>
+    <div id="rep-box" style="display:none;">
+      <div id="rep-question" style="background:linear-gradient(135deg,#7a2a42,#a04060); color:#ffeef4; padding:14px 18px; border-radius:6px; font-size:14px; font-family:Georgia,serif; font-style:italic; margin-bottom:10px; line-height:1.6;"></div>
+      <textarea id="rep-textarea" placeholder="Write your essay plan here..." style="width:100%; height:200px; padding:12px; font-size:13px; font-family:Arial,Helvetica,sans-serif; color:#2a1010; border:1px solid #c090a0; border-radius:6px; background:#fff; box-sizing:border-box; resize:vertical; line-height:1.6;"></textarea>
+      <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+        <button onclick="saveRepPlan()" style="background:#7a2a42; color:#ffeef4; border:none; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; font-weight:bold; border-radius:4px; cursor:pointer;">&#10003; Save Plan</button>
+        <button onclick="newRepQuestion()" style="background:none; border:1px solid #9a6070; color:#5a1830; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; border-radius:4px; cursor:pointer;">&#8635; New Question</button>
+        <a href="pol-soc-rapid-essays.html" style="background:none; border:1px solid #9a6070; color:#5a1830; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; border-radius:4px; text-decoration:none; display:inline-block;">&#128196; View Saved Plans</a>
+      </div>
+      <div id="rep-saved-msg" style="display:none; margin-top:8px; color:#229922; font-size:12px; font-family:Arial,sans-serif; font-weight:bold;">&#10003; Plan saved!</div>
+    </div>
+    <div id="rep-start" style="text-align:center; margin:10px 0 20px;">
+      <button onclick="newRepQuestion()" style="background:linear-gradient(135deg,#7a2a42,#a04060); color:#ffeef4; border:none; padding:10px 26px; font-family:Georgia,serif; font-size:14px; font-style:italic; border-radius:30px; cursor:pointer; box-shadow:2px 2px 0 #4a1022; letter-spacing:0.5px;">&#127922; Random Essay Question</button>
+    </div>
+
     <h3>Past Paper Question Bank</h3>
     <table class="revtable">
       <tr>
@@ -300,6 +319,36 @@ function carouselGo(id, dir) {
 }
 function carouselNext(id) { carouselGo(id, 1); }
 function carouselPrev(id) { carouselGo(id, -1); }
+</script>
+
+<script>
+var QUESTIONS = ["Are cultural divisions replacing class divides in electoral politics?", "Are class politics what they used to be?", "Why are populist-right and green parties the most class-based parties in Europe in recent years?", "How is the relationship between class and vote affected by the class backgrounds of politicians?", "Is class politics a result of self-interest or socialisation?", "How important for class voting is the differing style of work required in different jobs?", "Class voting is now more about identity politics than economic interests.' Discuss.", "Class voting declines when party platforms converge, but this does not explain the long-term cross-national decline in class voting because party platforms have not systematically converged.' Discuss.", "To the extent that people still vote the same way as others in their social class, they do so for different reasons than fifty years ago.' Discuss.", "Is Islamophobia a distinct form of prejudice?", "Can post-materialism explain the rise of right-wing populism?", "Is the distinction between radical right and extreme right important for understanding electoral behaviour?", "Was the rise of the populist right the product of a cultural backlash against a liberal elite?", "How and why have attitudes to immigration changed over recent decades?", "Does the electoral performance of the populist-right depend more on their populism or on the policies?", "Radical right voters are neither radical nor right.' Discuss.", "Are both ethnic minorities and radical-right voters particularly motivated by candidates and leaders when voting in elections?", "Why, in Western countries, are both ethnic minorities and radical-right voters less satisfied than others with the way democracy works?", "Is the salience of immigration and ethnicity in electoral politics primarily the result of economic factors?", "Radical right voting by whites and left voting by ethnic minorities are both driven by prejudice.' Discuss.", "What explains gender gaps in political participation?", "Why is the gender gap in voting bigger in the USA than in other Western democracies?", "Why are successive cohorts of younger women increasingly left-wing?", "Why do more men than women continue to be elected to public office?", "To what extent are economic inequalities between men and women the reason for gender differences in political attitudes and behaviour?", "Is gender a social cleavage?", "Why do gender gaps in political attitudes and voting change over time?", "What have female legislators ever done for women?", "Why are younger women more left wing than older women?", "What, if anything, would equalise the representation of men and women?", "Voting and protest behaviour are equally irrational forms of political participation.' Discuss.", "How do social networks affect voter turnout?", "Why do voters bother to vote?", "Why do young people vote less often than older people?", "Does the rational choice model of turnout help explain why turnout levels vary so much across countries?", "People participate in politics because they care about the outcomes. Any other factors affecting participation are mere details.' Discuss.", "How is the long list of causal factors affecting voter turnout best understood?", "Does political participation in rich democracies depend more on who you are or who you talk to?", "Why do poorer people participate in politics less often?", "How are patterns of political participation changing in wealthy democracies?", "Does digital media deepen political polarization?", "Which experiments have been most powerful in identifying the nature of media effects on election outcomes?", "Has the decline of newspaper circulation had any systematic political consequences?", "Public service broadcasting is the only form of media that does not polarise public opinion.' Discuss.", "Has the decline of the political influence of the press been exaggerated?", "Are popular misperceptions about politics the fault of the media?", "How has the development of social-media based 'echo chambers' affected the influence of the traditional media?"];
+var currentRepQuestion = '';
+
+function newRepQuestion() {
+  var q = QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)];
+  currentRepQuestion = q;
+  document.getElementById('rep-question').textContent = q;
+  document.getElementById('rep-textarea').value = '';
+  document.getElementById('rep-saved-msg').style.display = 'none';
+  document.getElementById('rep-box').style.display = 'block';
+  document.getElementById('rep-start').style.display = 'none';
+  document.getElementById('rep-textarea').focus();
+}
+
+function saveRepPlan() {
+  var plan = document.getElementById('rep-textarea').value.trim();
+  if (!plan) { alert('Please write something before saving!'); return; }
+  var plans;
+  try { plans = JSON.parse(localStorage.getItem('polsoc_rapid_essays')) || []; }
+  catch(e) { plans = []; }
+  var now = new Date();
+  var dateStr = now.toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'});
+  plans.push({ question: currentRepQuestion, plan: plan, date: dateStr });
+  localStorage.setItem('polsoc_rapid_essays', JSON.stringify(plans));
+  document.getElementById('rep-saved-msg').style.display = 'block';
+  setTimeout(function(){ document.getElementById('rep-saved-msg').style.display = 'none'; }, 3000);
+}
 </script>
 
 </body>
