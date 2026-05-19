@@ -199,17 +199,17 @@
 
     <h3>&#127922; Rapid Essay Practice</h3>
     <p style="font-size:12px; font-family:Arial,sans-serif; color:#7a4858; margin-bottom:10px;">
-      Get a random past paper question and write a quick plan. Hit Save and it goes straight to your <a href="pol-soc-rapid-essays.html" style="color:#7a0030;">Rapid Essay Plans</a> page.
+      Get a random past paper question, write a quick plan, then copy it straight into your Google Doc.
     </p>
     <div id="rep-box" style="display:none;">
       <div id="rep-question" style="background:linear-gradient(135deg,#7a2a42,#a04060); color:#ffeef4; padding:14px 18px; border-radius:6px; font-size:14px; font-family:Georgia,serif; font-style:italic; margin-bottom:10px; line-height:1.6;"></div>
       <textarea id="rep-textarea" placeholder="Write your essay plan here..." style="width:100%; height:200px; padding:12px; font-size:13px; font-family:Arial,Helvetica,sans-serif; color:#2a1010; border:1px solid #c090a0; border-radius:6px; background:#fff; box-sizing:border-box; resize:vertical; line-height:1.6;"></textarea>
-      <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
-        <button onclick="saveRepPlan()" style="background:#7a2a42; color:#ffeef4; border:none; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; font-weight:bold; border-radius:4px; cursor:pointer;">&#10003; Save Plan</button>
+      <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; align-items:center;">
+        <button onclick="copyRepPlan()" style="background:#7a2a42; color:#ffeef4; border:none; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; font-weight:bold; border-radius:4px; cursor:pointer;">&#128203; Copy Plan</button>
+        <a href="https://docs.google.com/document/d/17vDRzv5v6je6EfgJRPeo2vPfKepKUxQCmznzoY1q5wQ/edit?usp=drivesdk" target="_blank" style="background:#3a7a42; color:#eeffee; border:none; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; font-weight:bold; border-radius:4px; cursor:pointer; text-decoration:none; display:inline-block;">&#128196; Open Google Doc</a>
         <button onclick="newRepQuestion()" style="background:none; border:1px solid #9a6070; color:#5a1830; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; border-radius:4px; cursor:pointer;">&#8635; New Question</button>
-        <a href="pol-soc-rapid-essays.html" style="background:none; border:1px solid #9a6070; color:#5a1830; padding:7px 18px; font-family:Arial,sans-serif; font-size:12px; border-radius:4px; text-decoration:none; display:inline-block;">&#128196; View Saved Plans</a>
       </div>
-      <div id="rep-saved-msg" style="display:none; margin-top:8px; color:#229922; font-size:12px; font-family:Arial,sans-serif; font-weight:bold;">&#10003; Plan saved!</div>
+      <div id="rep-copy-msg" style="display:none; margin-top:8px; color:#229922; font-size:12px; font-family:Arial,sans-serif; font-weight:bold;">&#10003; Copied! Now open the doc and paste.</div>
     </div>
     <div id="rep-start" style="text-align:center; margin:10px 0 20px;">
       <button onclick="newRepQuestion()" style="background:linear-gradient(135deg,#7a2a42,#a04060); color:#ffeef4; border:none; padding:10px 26px; font-family:Georgia,serif; font-size:14px; font-style:italic; border-radius:30px; cursor:pointer; box-shadow:2px 2px 0 #4a1022; letter-spacing:0.5px;">&#127922; Random Essay Question</button>
@@ -336,18 +336,24 @@ function newRepQuestion() {
   document.getElementById('rep-textarea').focus();
 }
 
-function saveRepPlan() {
+function copyRepPlan() {
   var plan = document.getElementById('rep-textarea').value.trim();
-  if (!plan) { alert('Please write something before saving!'); return; }
-  var plans;
-  try { plans = JSON.parse(localStorage.getItem('polsoc_rapid_essays')) || []; }
-  catch(e) { plans = []; }
-  var now = new Date();
-  var dateStr = now.toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'});
-  plans.push({ question: currentRepQuestion, plan: plan, date: dateStr });
-  localStorage.setItem('polsoc_rapid_essays', JSON.stringify(plans));
-  document.getElementById('rep-saved-msg').style.display = 'block';
-  setTimeout(function(){ document.getElementById('rep-saved-msg').style.display = 'none'; }, 3000);
+  if (!plan) { alert('Please write something first!'); return; }
+  var fullText = currentRepQuestion + '\n\n' + plan;
+  navigator.clipboard.writeText(fullText).then(function() {
+    document.getElementById('rep-copy-msg').style.display = 'block';
+    setTimeout(function(){ document.getElementById('rep-copy-msg').style.display = 'none'; }, 4000);
+  }).catch(function() {
+    // Fallback for older browsers
+    var ta = document.createElement('textarea');
+    ta.value = fullText;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    document.getElementById('rep-copy-msg').style.display = 'block';
+    setTimeout(function(){ document.getElementById('rep-copy-msg').style.display = 'none'; }, 4000);
+  });
 }
 </script>
 
